@@ -1,0 +1,8 @@
+﻿@model OrderItem
+<form method="post" asp-controller="Home" asp-action="OrderItemAdding">
+    For Item Name <input asp-for="ItemName" /> <br></br>
+    For Description<input asp-for="Description" /><br></br>
+    For Price <input asp-for="Price" /><br></br>
+
+    <button type="submit">Submit</button>
+</form>

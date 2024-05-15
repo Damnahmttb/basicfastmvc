@@ -1,0 +1,48 @@
+﻿@model Order
+@{
+    List<Order> order = ViewBag.OrderTable;
+    List<OrderItem> orderitem = ViewBag.OrderItemTable;
+
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<form>
+
+    <div >
+        <a class="btn btn-primary " asp-area="" asp-controller="Home" asp-action="OrderAdding">ADD ORDER </a>
+        <br></br>
+        <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="OrderItemadding">ADD ORDER ITEM </a>
+        <br></br>
+        <div>
+            <h1>Order Table</h1>
+            @foreach (var item in order)
+            {
+
+                <p style="display:inline;padding:1px"> @item.Id</p>
+
+                <p style="display:inline;padding:1px">@item.Address</p>
+                <a class="btn btn-primary" style="padding:3px"  asp-controller="Home" asp-action="OrderAddingUpdate" asp-route-id="@item.Id">Edit </a>
+                <a class="btn btn-primary" style="padding:3px" asp-controller="Home" asp-action="OrderAddingDelete" asp-route-id="@item.Id">Delete </a>
+                <br></br>
+            }
+            
+        </div>
+        <div>
+            <h1>OrderItem Table</h1>
+            @foreach (var item in orderitem)
+            {
+
+                <p style="display:inline;padding:1px"> @item.Id</p>
+
+                <p style="display:inline;padding:1px">@item.ItemName</p>
+                <p style="display:inline;padding:1px">@item.Description</p>
+                <p style="display:inline;padding:1px">@item.Price</p>
+                <a class="btn btn-primary" style="padding:3px" asp-controller="Home" asp-action="OrderItemAddingUpdate" asp-route-id="@item.Id">Edit </a>
+                <a class="btn btn-primary" style="padding:3px" asp-controller="Home" asp-action="OrderItemAddingDelete" asp-route-id="@item.Id">Delete </a>
+                <br></br>
+            }
+
+        </div>
+    </div>
+
+</form>

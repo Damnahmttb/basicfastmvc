@@ -1,0 +1,9 @@
+﻿@model OrderItem
+<form method="post" asp-action="OrderItemAddingUpdate" asp-controller="Home">
+    <p style="display:inline;padding:1px"> @Model.Id</p>
+
+    <input asp-for="ItemName" placeholder="@Model.ItemName"></input>
+    <input asp-for="Description" placeholder="@Model.Description"></input>
+    <input asp-for="Price" placeholder="@Model.Price"></input>
+    <button type="submit">Submit</button>
+</form>
